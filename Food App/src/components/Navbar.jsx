@@ -10,8 +10,11 @@ export default function Navbar() {
   const data=useCart();
   const [cartView,setCartView]=useState(false);
   const navigate = useNavigate();
+
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    console.log(localStorage.getItem("Token"));
+    localStorage.removeItem("Token");
+    localStorage.removeItem("userEmail");
     navigate("/login");
   }
 
@@ -25,18 +28,19 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto ">
-              <li className="nav-item">
-                <Link className="nav-link active fs-4" style={{marginLeft:"30px"}} aria-current="page" to="/myOrder">My Order</Link>
-              </li>
               {
-                (localStorage.getItem("token")) ?
+                (localStorage.getItem("Token")) ?
                   <li className="nav-item">
-                    <Link className="nav-link active fs-5" aria-current="page" to="/">Home</Link>
+                    <Link className="nav-link active fs-4 " style={{marginLeft:"30px"}} aria-current="page" to="/">Home</Link>
                   </li> : ""
               }
+              <li className="nav-item">
+                <Link className="nav-link active fs-4 " style={{marginLeft:"30px"}} aria-current="page" to="/myOrder">My Order</Link>
+              </li>
+              
             </ul>
             {
-              (localStorage.getItem("token")) ?
+              (!localStorage.getItem("Token")) ?
                 <div className='d-flex '>
                   <Link className="btn bg-white text-success mx-1" to="/login">Login</Link>
 

@@ -15,13 +15,6 @@ router.post("/signup",[
     body('password',"password should have atleast 5 letters").isLength({ min: 5 }),
 ],async(req,res)=>{
     const {name,password,email,location}=req.body;
-    // validation
-    // if(!name||!email ||!password || !location ){
-    //     return res.json({
-    //         success:false,
-    //         message:"All Fields are required",
-    //     })
-    // }
     const errors=validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({
@@ -63,12 +56,6 @@ router.post("/login",[
             errors:errors.array(),
         })
     }
-    // if(!email ||!password){
-    //     return res.status(400).json({
-    //         success:false,
-    //         message:"All Fields are required",
-    //     })
-    // }
     
     try{
         const userData=await User.findOne({email});
