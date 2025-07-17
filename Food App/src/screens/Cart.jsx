@@ -2,6 +2,7 @@ import React from 'react'
 import { MdDeleteForever } from "react-icons/md";
 // import Delete from '@material-ui/icons/Delete'
 import { useCart, useDispatchCart } from '../components/ContextReducer';
+
 export  const Cart=()=>{
   let data = useCart();
   let dispatch = useDispatchCart();
@@ -12,17 +13,10 @@ export  const Cart=()=>{
       </div>
     )
   }
-//   const handleRemove = (index)=>{
-//     console.log(index)
-//     dispatch({type:"REMOVE",index:index})
-//   }
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
-    // console.log(data,localStorage.getItem("userEmail"),new Date())
     let response = await fetch("http://localhost:5000/api/v1/orderData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -42,8 +36,6 @@ export  const Cart=()=>{
   let totalPrice = data.reduce((total, food) => total + food.price, 0)
   return (
     <div>
-
-      {/* {console.log(data)} */}
       <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
         <table className='table table-hover '>
           <thead className=' text-success fs-4'>
@@ -73,9 +65,6 @@ export  const Cart=()=>{
           <button className='btn bg-success mt-5 ' onClick={handleCheckOut} > Check Out </button>
         </div>
       </div>
-
-
-
     </div>
   )
 }

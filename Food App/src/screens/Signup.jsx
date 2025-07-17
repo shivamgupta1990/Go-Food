@@ -41,7 +41,7 @@ export default function Signup() {
     }
 
   return (
-    <div className="container">
+    <div className="container" style={{height:"100vh"}}>
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label htmlFor="name" className="form-label">Name</label>

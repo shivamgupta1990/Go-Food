@@ -29,10 +29,9 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto ">
               {
-                (localStorage.getItem("Token")) ?
                   <li className="nav-item">
                     <Link className="nav-link active fs-4 " style={{marginLeft:"30px"}} aria-current="page" to="/">Home</Link>
-                  </li> : ""
+                  </li> 
               }
               <li className="nav-item">
                 <Link className="nav-link active fs-4 " style={{marginLeft:"30px"}} aria-current="page" to="/myOrder">My Order</Link>
