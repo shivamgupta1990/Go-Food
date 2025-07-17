@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom' 
-
+import { toast } from "react-toastify"
+import { ToastContainer } from "react-toastify";
 
 export default function Signup() {
     const navigate= useNavigate();
@@ -33,7 +34,10 @@ export default function Signup() {
             alert("Enter valid Credentials");
         }
         else{
-            navigate("/");
+            toast.success("Registation Successfully!");
+                setTimeout(() => {
+                navigate("/"); 
+                }, 1500);
         }
     }
     const onChange=(event)=>{
@@ -64,6 +68,7 @@ export default function Signup() {
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
             <Link to="/login" className="m-3 btn btn-danger">Already a user</Link>
+            <ToastContainer/>
         </form>
     </div>
   )

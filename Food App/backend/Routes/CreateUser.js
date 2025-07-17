@@ -15,10 +15,19 @@ router.post("/signup",[
     body('password',"password should have atleast 5 letters").isLength({ min: 5 }),
 ],async(req,res)=>{
     const {name,password,email,location}=req.body;
+    
     const errors=validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({
             errors:errors.array(),
+        })
+    }
+    const find=await User.findOne({email});
+    if(find){
+        console.log("user already registered");
+        return res.status(400).json({
+            success:false,
+            message:"User Already Registered",
         })
     }
     const salt=await bcrypt.genSalt(10);
@@ -39,7 +48,6 @@ router.post("/signup",[
             success:false,
             message:"Unable to create user",
         })
-        
     }
 })
 

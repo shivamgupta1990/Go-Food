@@ -23,9 +23,12 @@ export default function MyOrder() {
     useEffect(() => {
         fetchMyOrder()
     },[])
-
+    // setorderData(orderData?.orderData?.order_data.slice(0).reverse());
+    console.log("orderData->",orderData?.orderData?.order_data?.length );
+    const leng=orderData?.orderData?.order_data?.length;
+    const len = orderData?.orderData?.order_data[leng-1]?.length + orderData?.orderData?.order_data[leng-2]?.length || 0;
     return (
-        <div style={{height:"100%"}}>
+        <div style={{ height: len>2 ? "100%" : "100vh" }}>
             <div className='container'>
                 <div className='row'>
 
