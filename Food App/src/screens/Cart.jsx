@@ -1,6 +1,5 @@
 import React from 'react'
 import { MdDeleteForever } from "react-icons/md";
-// import Delete from '@material-ui/icons/Delete'
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 
 export  const Cart=()=>{
