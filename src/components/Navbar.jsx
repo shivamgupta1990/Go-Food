@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Badge from 'react-bootstrap/badge';
+import Badge from 'react-bootstrap/Badge';
 import Modal from '../Modal';
 import { Cart } from '../screens/Cart';
 import { useCart } from './ContextReducer';
