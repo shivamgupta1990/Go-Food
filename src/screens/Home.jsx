@@ -9,7 +9,7 @@ export default function Home() {
 
   const loadData = async (req, res) => {
     try {
-      let response = await fetch("http://localhost:5000/api/v1/foodData", {
+      let response = await fetch("https://foodappserver-2q59.onrender.com/api/v1/foodData", {
         method: "get",
         headers: {
           "Content-Type": "application/json"

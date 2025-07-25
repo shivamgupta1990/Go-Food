@@ -15,7 +15,7 @@ export default function Signup() {
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
-        const response=await fetch("http://localhost:5000/api/v1/signup",{
+        const response=await fetch("https://foodappserver-2q59.onrender.com/api/v1/signup",{
             method:"POST",
             headers:{
                 "content-Type":"application/json", 
